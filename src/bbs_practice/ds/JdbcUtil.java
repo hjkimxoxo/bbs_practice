@@ -8,27 +8,25 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class JdbcUtil {
-	public static Connection getConnection() {
-		Connection conn = null;
+public static Connection getConnection() {
+		
+		Connection con = null;
 		String proptiesPath = "db.properties";
-		// String proptiesPath = "mysql_db.properties";
+		
 		try (InputStream is = ClassLoader.getSystemResourceAsStream(proptiesPath)) {
+			
 			Properties props = new Properties();
 			props.load(is);
-			//System.out.println(props);
-//			String user = props.getProperty("user");
-//			String password = props.getProperty("password");
 			
-			//System.out.printf("user=%s, pw=%s, url=%s%n", user, password, url);
-//			conn = DriverManager.getConnection(url, user, password);
 			String url = props.getProperty("url");
-			conn = DriverManager.getConnection(url, props);
+			con = DriverManager.getConnection(url, props);
+			
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
-//			e.printStackTrace();
+			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		return conn;
+		} 
+		return con;
 	}
 }

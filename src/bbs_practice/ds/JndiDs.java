@@ -15,7 +15,7 @@ public class JndiDs {
       try {
          InitialContext ic = new InitialContext(); // 1. JNDI 서버 객체 생성
          ds = (DataSource) ic.lookup("java:comp/env/jdbc/hairrang"); // 2. lookup()
-         System.out.println("ds : " + ds);
+         //System.out.println("ds : " + ds);
       } catch (NamingException e) {
          e.printStackTrace();
       }

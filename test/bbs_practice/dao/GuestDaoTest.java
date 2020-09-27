@@ -2,6 +2,8 @@ package bbs_practice.dao;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -27,7 +29,15 @@ public class GuestDaoTest {
 	@Test
 	public void testGuest() {
 		int res = dao.login("test", "1234");
-		Assert.assertEquals(1, res);
+		//Assert.assertEquals(1, res);
+		System.out.println(res);
+	}
+	
+	@Test
+	public void GuestList() {
+		ArrayList<Guest> list = dao.guestList();
+		Assert.assertNotNull(list);
+		System.out.println(list);;
 	}
 
 }
